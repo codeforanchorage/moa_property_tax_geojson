@@ -69,7 +69,8 @@ def import_data():
     # first, import property tax data
     files = ['data/Anchorage-Property-Tax-Data/2006.ascii',
              'data/Anchorage-Property-Tax-Data/2009.ascii',
-             'data/Anchorage-Property-Tax-Data/2012.ascii']
+             'data/Anchorage-Property-Tax-Data/2012.ascii',
+             'data/Anchorage-Property-Tax-Data/2014.ascii']
     mapper = """
         function() {
             emit(
@@ -80,11 +81,13 @@ def import_data():
         function(key, values) {
             var result = {
     """
+    years = []
     for path in files:
         with open(path, "r") as f:
             year = path[-10:-6]
             mapper += '"{}": this["{}"],'.format(year, year)
             reducer += '"{}": null,'.format(year)
+            years.append(year)
             logger.info("processing {}".format(year))
             transaction = []
             for line in f:
@@ -153,6 +156,15 @@ def import_data():
     for record in mtax_data.find({"geometry": {"$ne": None}}):
         record['type'] = 'Feature'
         record['properties'] = record.pop('value')
+        record['properties']['parcel_id'] = record['_id']
+        record['properties']['prior'] = {}
+        for year in years:
+            record['properties']['prior'][year] = record['properties'].pop(year)
+        for year in reversed(years):
+            if year in record['properties']['prior'] and record['properties']['prior'][year]:
+                record['properties'].update(record['properties']['prior'].pop(year))
+                record['properties']['tax_year'] = year
+                break
         transaction.append(InsertOne(record))
     logger.info("writing geojson results")
     result = mgeojson.bulk_write(transaction)

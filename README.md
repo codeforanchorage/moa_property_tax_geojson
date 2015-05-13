@@ -10,63 +10,80 @@ to produce a bulk GeoJSON output. More details to come.
 ```json
 {
     "type": "FeatureCollection",
-    "features":
-        [
-            {
-                "type": "Feature",
-                "geometry":
-                    {
-                        "type": "MultiLineString",
-                        "coordinates":
-                            [[
-                                [-149.8991555097872,  61.22039824848633],
-                                [-149.89887073444086, 61.22039991294965],
-                                [-149.8988718620727,  61.22004489790546],
-                                [-149.8991566398672,  61.22004323891429],
-                                [-149.8991555097872,  61.22039824848633]
-                            ]]
-                    },
-                "properties":
-                    {
-                        "area": 6514.352207645774,
-                        "deed_date": "2012-07-23T00:00:00",
-                        "year_built": null,
-                        "2006":
-                            {
-                                "zone": "B2C",
-                                "total_value": 118000,
-                                "tax_district": "001",
-                                "bldg_value": 0,
-                                "land_value": 118000,
-                                "land_use_code": "PARKING MISC.",
-                                "lci": "Com"
-                            },
-                        "2009":
-                            {
-                                "zone": "B2C",
-                                "total_value": 118000,
-                                "tax_district": "001",
-                                "bldg_value": 0,
-                                "land_value": 118000,
-                                "land_use_code": "PARKING MISC.",
-                                "lci": "Com"
-                            },
-                        "2012":
-                            {
-                                "zone": "B2C",
-                                "total_value": 118000,
-                                "tax_district": "001",
-                                "bldg_value": 0,
-                                "land_value": 118000,
-                                "land_use_code": "PARKING MISC.",
-                                "lci": "Com"
-                            }
-                    }
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "coordinates": [
+                    [
+                        [
+                            -149.90791833095705,
+                            61.21721713678784
+                        ],
+                        [
+                            -149.90838226848814,
+                            61.21721349277347
+                        ],
+                        [
+                            -149.9079189749373,
+                            61.21749577900827
+                        ],
+                        [
+                            -149.90791833095705,
+                            61.21721713678784
+                        ]
+                    ]
+                ],
+                "type": "MultiLineString"
             },
-            {...},
-            {...},
-            {...},
-        ]
+            "properties": {
+                "area": 4165.404167801142,
+                "bldg_value": 324100,
+                "deed_date": "2006-09-22T00:00:00",
+                "land_use_code": "SINGLE FAMILY",
+                "land_value": 201900,
+                "lci": "Res",
+                "parcel_id": "00103103000",
+                "tax_district": "001",
+                "tax_year": "2014",
+                "total_value": 526000,
+                "year_built": 1959.0,
+                "zone": "R3",
+                "prior": {
+                    "2006": {
+                        "bldg_value": 324100,
+                        "land_use_code": "SINGLE FAMILY",
+                        "land_value": 201900,
+                        "lci": "Res",
+                        "tax_district": "001",
+                        "total_value": 526000,
+                        "zone": "R3"
+                    },
+                    "2009": {
+                        "bldg_value": 324100,
+                        "land_use_code": "SINGLE FAMILY",
+                        "land_value": 201900,
+                        "lci": "Res",
+                        "tax_district": "001",
+                        "total_value": 526000,
+                        "zone": "R3"
+                    },
+                    "2012": {
+                        "bldg_value": 324100,
+                        "land_use_code": "SINGLE FAMILY",
+                        "land_value": 201900,
+                        "lci": "Res",
+                        "tax_district": "001",
+                        "total_value": 526000,
+                        "zone": "R3"
+                    }
+                }
+            }
+        },
+        {...},
+        {...},
+        {...},
+    ]
 }
 ```
 
