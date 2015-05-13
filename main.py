@@ -155,6 +155,7 @@ def import_data():
     transaction = []
     for record in mtax_data.find({"geometry": {"$ne": None}}):
         record['type'] = 'Feature'
+        record['geometry']['type'] = 'Polygon'
         record['properties'] = record.pop('value')
         record['properties']['parcel_id'] = record['_id']
         record['properties']['prior'] = {}
