@@ -34,7 +34,7 @@ to produce a bulk GeoJSON output. More details to come.
                         ]
                     ]
                 ],
-                "type": "MultiLineString"
+                "type": "Polygon"
             },
             "properties": {
                 "area": 4165.404167801142,
