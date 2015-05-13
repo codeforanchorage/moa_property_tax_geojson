@@ -1,5 +1,9 @@
 # Municipality of Anchorage Property Tax Data to GeoJSON
 
+Get the data here:
+
+https://github.com/codeforanchorage/moa_property_tax_geojson/releases/latest
+
 A simple data loader for parsing MOA property tax data and merging it with GIS data
 to produce a bulk GeoJSON output. More details to come.
 
